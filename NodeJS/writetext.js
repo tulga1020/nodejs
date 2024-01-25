@@ -6,13 +6,10 @@ const app = express();
 const port = 8000;
 const ob = { email: "tulga1020@gmail.com", fullName: "Battulga.G" };
 app.get("/", (req, res) => {
-  
   try {
     res.status(200);
     res.setHeader("Content-Type", "application/json");
-    res.send(if( {
-       // console.log("file chin ustchihsan ym bish uu? hugshuun");
-      } JSON.stringify(mock));
+    res.send(JSON.stringify(mock));
   } catch (err) {
     res.send("file aa usgatsan bn aa");
   }

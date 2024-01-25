@@ -1,54 +1,48 @@
-const axios = require("axios");
-const post = async () => {
+import user from "./user.json" assert { type: "json" };
+import express from "express";
+import dotenv from "dotenv";
+import fs from "fs/promises";
+import { writeFile } from "node:fs/promises";
+
+dotenv.config();
+const app = express();
+app.use(express.json());
+const port = process.env.PORT;
+
+// app.get("/user", (req, res) => {
+//   //username lastname ali neg n baihgui bol error 400
+//   res.status(200);
+//   res.setHeader("Content-Type", "application/json");
+//   res.send(JSON.stringify(user));
+// });
+
+app.post("/user", async (req, res) => {
+  const { username, email } = req.body;
+
   try {
-    const result = await axios
-      .get("https://dummyapi.io/data/v1/post?page=1&limit=5", {
-        headers: { "app-id": "65adda3a7698f89794330f14" },
-      })
-      .then((response) => {
-        // handle success
-        //   console.log(response.data);
-      });
-    return result;
-  } catch (error) {}
-};
-const user = async () => {
-  try {
-    const result = await axios
-      .get("https://dummyapi.io/data/v1/user?page=1&limit=5", {
-        headers: { "app-id": "65adda3a7698f89794330f14" },
-      })
-      .then((error) => {
-        // throw new Error(error.message);
-      });
-    return result;
-  } catch (error) {}
-};
+    if (!username || !email) {
+      throw new Error("user name esvel mail buruu baina");
+    }
+    // readfile users.json
+    const usreee = await fs.readFile(
+      "/Users/23LP2259/OneDrive - Nestcore LLC/NodeJS/user.json",
+      "utf8"
+    );
+    const data = JSON.parse(usreee);
 
-// use data get-leh
-// post data get-leh
-const a = async () => {
-  await user();
-  await post();
-};
-// const userInfo = async () => {
-//   await axios
-//     .get("https://dummyapi.io/data/v1/user/:id", {
-//       headers: { "app-id": "65adda3a7698f89794330f14" },
-//     })
-//     .then((res) => {
-//       console.log(res.data);
-//     });
-// };
-// userInfo();
+    data.user.push({ username, email });
+    // ehleed json file existed user.json baival array-dee nemeed bich
+    writeFile(
+      "/Users/23LP2259/OneDrive - Nestcore LLC/NodeJS/user.json",
+      JSON.stringify(data)
+    );
 
-// api Key: "65adda3a7698f89794330f14"
+    res.status(200).send("mail bolon ner zuv baina");
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+// hervee usej.json baihgui bol shine user.json uusgeed array=dee nem
+app.app.listen(port, () => console.log(`http://localhost:${port}`));
 
-// axios({
-//     method: 'get',
-//     url: 'http://bit.ly/2mTM3nY',
-//     responseType: 'stream'
-//   })
-//     .then(function (response) {
-//       response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
-//     });
+// user.json buh datag butsaa
