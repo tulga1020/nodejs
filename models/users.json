@@ -1,0 +1,9 @@
+[
+  {
+    "username": "mockuser",
+    "email": "mockemail",
+    "password": "mockpassword",
+    "followers": "1000",
+    "following": "1"
+  }
+]

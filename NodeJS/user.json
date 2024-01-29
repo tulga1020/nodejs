@@ -1,0 +1,12 @@
+{
+  "user": [
+    { "id": "1", "username": "battulga", "email": "badfsdf" },
+    { "id": "2", "username": "battulga2", "email": "aaaaaaaa@2.mn" },
+    { "id": "3", "username": "battulga3", "email": "aaaaaaaa@3.mn" },
+    { "id": "4", "username": "battulga4", "email": "aaaaaaaa@4.mn" },
+    { "id": "5", "username": "battulga5", "email": "aaaaaaaa@5.mn" },
+    { "id": "6", "username": "battulga6", "email": "aaaaaaaa@6.mn" },
+    { "id": "7", "username": "battulga7", "email": "aaaaaaaa@7.mn" },
+    { "id": "8", "username": "battulga8", "email": "aaaaaaaa@8.mn" }
+  ]
+}
