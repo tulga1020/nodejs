@@ -29,7 +29,7 @@ app.post("/user", async (req, res) => {
   const { username: updatedUsername, email: updatedEmail } = req.body;
   const AllUsersJson = await readFile();
   const { users } = JSON.parse(AllUsersJson);
-  const updatedData = users.mao(({}) => {
+  const updatedData = users.map(({}) => {
     if (email === updatedEmail) {
       username = updatedUsername;
     }
