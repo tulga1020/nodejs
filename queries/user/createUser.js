@@ -6,9 +6,7 @@ export const createUsers = async (req, res) => {
   // create user
   try {
     const { email: paramEmail, password, username } = req?.body;
-
     const alluser = JSON.parse(await fs.readFileSync(userDb, "utf-8"));
-
     const newUser = alluser.some((user) => user?.email === paramEmail);
     if (!newUser) {
       alluser.push({
@@ -16,9 +14,7 @@ export const createUsers = async (req, res) => {
         password,
         username,
       });
-
       await fs.writeFileSync(userDb, JSON.stringify(alluser));
-
       return "success";
     } else {
       return "Бүртгэлтэй хэрэглэгч bna ";

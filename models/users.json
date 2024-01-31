@@ -1,12 +1,6 @@
 [
-  {
-    "email": "mockesdfasaadfs fsd",
-    "password": "shinepdfdfassword",
-    "username": "tsdfuk"
-  },
-  {
-    "email": "mockesdfasaaddfgdfgdfgfs fsd",
-    "password": "shinepdfdfassword",
-    "username": "tsdfuk"
-  }
+  {},
+  { "email": "mockmaildfd", "password": "ddddddd" },
+  { "email": "mockmail", "password": "ddddddd" },
+  { "email": "mock", "password": "ddddddd" }
 ]
